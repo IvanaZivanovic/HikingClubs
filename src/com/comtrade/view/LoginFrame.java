@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.KontrolerFKKonstanta;
 import com.comtrade.domen.KontrolerPLKonstanta;
 import com.comtrade.domen.TransferKlasa;
@@ -22,7 +22,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class LoginForma extends JFrame {
+public class LoginFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfUsername;
@@ -36,7 +36,7 @@ public class LoginForma extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginForma frame = new LoginForma();
+					LoginFrame frame = new LoginFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +48,7 @@ public class LoginForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginForma() {
+	public LoginFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -95,7 +95,7 @@ public class LoginForma extends JFrame {
 		btnSignUp = new JButton("Sign Up");
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegistracijaForma registracijaForma = new RegistracijaForma();
+				RegistrationFrame registracijaForma = new RegistrationFrame();
 				registracijaForma.setVisible(true);
 			}
 		});

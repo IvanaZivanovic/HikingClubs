@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.Akcija;
 import com.comtrade.domen.KontrolerFKKonstanta;
 import com.comtrade.domen.KontrolerPLKonstanta;
@@ -33,7 +33,7 @@ import java.time.chrono.ChronoLocalDate;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class RezervacijaForma extends JFrame {
+public class BookingFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tableAkcija;
@@ -61,7 +61,7 @@ public class RezervacijaForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RezervacijaForma() {
+	public BookingFrame() {
 		TransferKlasa transferKlasaAkcija = new TransferKlasa().kreirajRequest(null, KontrolerFKKonstanta.AKCIJA, KontrolerPLKonstanta.GET);
 		KontrolerFK.getInstanca().execute(transferKlasaAkcija);
 		listaAkcija = (List<Akcija>) transferKlasaAkcija.getResponse();
@@ -241,8 +241,8 @@ public class RezervacijaForma extends JFrame {
 		contentPane.add(rdbtnSearchByDate);
 		searchActions.add(rdbtnSearchByDate);
 		
-		JButton btnShowAllActions = new JButton("Show All Actions");
-		btnShowAllActions.addActionListener(new ActionListener() {
+		JButton btnShowAllTours = new JButton("Show All Tours");
+		btnShowAllTours.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				postaviPodatkeUAkcije();
 				clearSvaPolja();
@@ -251,8 +251,8 @@ public class RezervacijaForma extends JFrame {
 
 			
 		});
-		btnShowAllActions.setBounds(789, 94, 152, 23);
-		contentPane.add(btnShowAllActions);
+		btnShowAllTours.setBounds(789, 94, 152, 23);
+		contentPane.add(btnShowAllTours);
 		
 		JButton btnShowAllHikers = new JButton("Show All Hikers");
 		btnShowAllHikers.addActionListener(new ActionListener() {

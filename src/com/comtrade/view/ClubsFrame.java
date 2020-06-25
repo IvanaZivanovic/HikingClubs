@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.Adresa;
 import com.comtrade.domen.Klub;
 import com.comtrade.domen.Kontakt;
@@ -27,7 +27,7 @@ import java.awt.event.MouseListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
-public class KlubForma extends JFrame {
+public class ClubsFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfName;
@@ -50,7 +50,7 @@ public class KlubForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public KlubForma() {
+	public ClubsFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1118, 547);
 		contentPane = new JPanel();

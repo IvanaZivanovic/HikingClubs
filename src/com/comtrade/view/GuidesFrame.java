@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.Klub;
 import com.comtrade.domen.KontrolerFKKonstanta;
 import com.comtrade.domen.KontrolerPLKonstanta;
@@ -30,7 +30,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JRadioButton;
 
-public class VodicForma extends JFrame {
+public class GuidesFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfFirstName;
@@ -57,7 +57,7 @@ public class VodicForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VodicForma() {
+	public GuidesFrame() {
 		TransferKlasa transferKlasa = new TransferKlasa().kreirajRequest(null, KontrolerFKKonstanta.KLUB, KontrolerPLKonstanta.GET);
 		KontrolerFK.getInstanca().execute(transferKlasa);
 		klubovi = (List<Klub>) transferKlasa.getResponse();

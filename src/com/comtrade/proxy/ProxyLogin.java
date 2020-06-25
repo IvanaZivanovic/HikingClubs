@@ -2,8 +2,8 @@ package com.comtrade.proxy;
 
 import javax.swing.JOptionPane;
 
-import com.comtrade.view.MedjuForma;
-import com.comtrade.view.RezervacijaForma;
+import com.comtrade.view.MidFrame;
+import com.comtrade.view.BookingFrame;
 
 public class ProxyLogin implements Proxy{
 
@@ -12,10 +12,10 @@ public class ProxyLogin implements Proxy{
 		if (rola == null) {
 			JOptionPane.showMessageDialog(null, "Takav user ne postoji");
 		}else if (rola == 1) {
-			MedjuForma medjuForma = new MedjuForma();
+			MidFrame medjuForma = new MidFrame();
 			medjuForma.setVisible(true);
 		} else if (rola == 2){
-			RezervacijaForma rezervacijaForma = new RezervacijaForma();
+			BookingFrame rezervacijaForma = new BookingFrame();
 			rezervacijaForma.setVisible(true);
 		} 
 	}

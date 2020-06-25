@@ -1,12 +1,12 @@
-package com.comtrade.controlerFK;
+package com.comtrade.controllerFC;
 
-import com.comtrade.controlerPL.KontrolerCommandBase;
-import com.comtrade.controlerPL.KontrolerPLAkcija;
-import com.comtrade.controlerPL.KontrolerPLKlub;
-import com.comtrade.controlerPL.KontrolerPLPlaninar;
-import com.comtrade.controlerPL.KontrolerPLRezervacija;
-import com.comtrade.controlerPL.KontrolerPLUser;
-import com.comtrade.controlerPL.KontrolerPLVodic;
+import com.comtrade.controllerBL.KontrolerCommandBase;
+import com.comtrade.controllerBL.KontrolerPLAkcija;
+import com.comtrade.controllerBL.KontrolerPLKlub;
+import com.comtrade.controllerBL.KontrolerPLPlaninar;
+import com.comtrade.controllerBL.KontrolerPLRezervacija;
+import com.comtrade.controllerBL.KontrolerPLUser;
+import com.comtrade.controllerBL.KontrolerPLVodic;
 import com.comtrade.domen.TransferKlasa;
 
 public class KontrolerFK {

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.KontrolerFKKonstanta;
 import com.comtrade.domen.KontrolerPLKonstanta;
 import com.comtrade.domen.TransferKlasa;
@@ -21,7 +21,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class RegistracijaForma extends JFrame {
+public class RegistrationFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField pfPassword;
@@ -36,7 +36,7 @@ public class RegistracijaForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RegistracijaForma() {
+	public RegistrationFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 409, 518);
 		contentPane = new JPanel();
@@ -114,7 +114,7 @@ public class RegistracijaForma extends JFrame {
 									
 				
 				JOptionPane.showMessageDialog(null, "Registration successful!");
-				RezervacijaForma rezervacijaForma = new RezervacijaForma();
+				BookingFrame rezervacijaForma = new BookingFrame();
 				rezervacijaForma.setVisible(true);
 				} 
 				

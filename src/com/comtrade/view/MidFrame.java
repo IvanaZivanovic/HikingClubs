@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MedjuForma extends JFrame {
+public class MidFrame extends JFrame {
 
 	private JPanel contentPane;
 
@@ -19,7 +19,7 @@ public class MedjuForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MedjuForma() {
+	public MidFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -30,27 +30,27 @@ public class MedjuForma extends JFrame {
 		JButton btnHikingClubs = new JButton("Hiking Clubs");
 		btnHikingClubs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				KlubForma klubForma = new KlubForma();
+				ClubsFrame klubForma = new ClubsFrame();
 				klubForma.setVisible(true);
 			}
 		});
 		btnHikingClubs.setBounds(65, 53, 134, 23);
 		contentPane.add(btnHikingClubs);
 		
-		JButton btnActivites = new JButton("Activities");
-		btnActivites.addActionListener(new ActionListener() {
+		JButton btnTours = new JButton("Tours");
+		btnTours.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AkcijeForma akcijeForma = new AkcijeForma();
+				ToursFrame akcijeForma = new ToursFrame();
 				akcijeForma.setVisible(true);
 			}
 		});
-		btnActivites.setBounds(241, 53, 134, 23);
-		contentPane.add(btnActivites);
+		btnTours.setBounds(241, 53, 134, 23);
+		contentPane.add(btnTours);
 		
 		JButton btnHikingGuides = new JButton("Hiking Guides");
 		btnHikingGuides.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VodicForma vodicForma = new VodicForma();
+				GuidesFrame vodicForma = new GuidesFrame();
 				vodicForma.setVisible(true);
 			}
 		});
@@ -60,7 +60,7 @@ public class MedjuForma extends JFrame {
 		JButton btnHikers = new JButton("Hikers");
 		btnHikers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PlaninarForma planinarForma = new PlaninarForma();
+				HikersFrame planinarForma = new HikersFrame();
 				planinarForma.setVisible(true);
 			}
 		});

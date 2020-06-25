@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.Klub;
 import com.comtrade.domen.KontrolerFKKonstanta;
 import com.comtrade.domen.KontrolerPLKonstanta;
@@ -33,7 +33,7 @@ import java.time.ZoneId;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JYearChooser;
 
-public class PlaninarForma extends JFrame {
+public class HikersFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfFirstName;
@@ -60,7 +60,7 @@ public class PlaninarForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PlaninarForma() {
+	public HikersFrame() {
 		TransferKlasa transferKlasa = new TransferKlasa().kreirajRequest(null, KontrolerFKKonstanta.KLUB, KontrolerPLKonstanta.GET);
 		KontrolerFK.getInstanca().execute(transferKlasa);
 		listaKlubova = (List<Klub>) transferKlasa.getResponse();

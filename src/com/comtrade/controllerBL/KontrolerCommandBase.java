@@ -1,4 +1,4 @@
-package com.comtrade.controlerPL;
+package com.comtrade.controllerBL;
 
 import com.comtrade.domen.TransferKlasa;
 

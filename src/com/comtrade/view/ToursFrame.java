@@ -22,7 +22,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
-import com.comtrade.controlerFK.KontrolerFK;
+import com.comtrade.controllerFC.KontrolerFK;
 import com.comtrade.domen.Akcija;
 import com.comtrade.domen.Klub;
 import com.comtrade.domen.KontrolerFKKonstanta;
@@ -35,7 +35,7 @@ import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class AkcijeForma extends JFrame {
+public class ToursFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tfDestination;
@@ -65,7 +65,7 @@ public class AkcijeForma extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AkcijeForma() {
+	public ToursFrame() {
 		TransferKlasa transferKlasa = new TransferKlasa().kreirajRequest(null, KontrolerFKKonstanta.KLUB, KontrolerPLKonstanta.GET);
 		KontrolerFK.getInstanca().execute(transferKlasa);
 		listaKlubova = (List<Klub>) transferKlasa.getResponse();
@@ -95,9 +95,9 @@ public class AkcijeForma extends JFrame {
 		lblDate.setBounds(459, 58, 79, 14);
 		contentPane.add(lblDate);
 		
-		JLabel lblActivityType = new JLabel("Activity type");
-		lblActivityType.setBounds(49, 133, 91, 14);
-		contentPane.add(lblActivityType);
+		JLabel lblType = new JLabel("Type");
+		lblType.setBounds(49, 133, 91, 14);
+		contentPane.add(lblType);
 		
 		tfActivityType = new JTextField();
 		tfActivityType.setBounds(173, 130, 335, 20);
