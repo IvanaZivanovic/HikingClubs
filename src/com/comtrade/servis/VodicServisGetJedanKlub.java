@@ -7,6 +7,7 @@ import com.comtrade.domen.TransferKlasa;
 import com.comtrade.domen.Vodic;
 
 public class VodicServisGetJedanKlub extends OpstaSistemskaOperacija {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void izvrsiKonkretnuSistemskuOperaciju(TransferKlasa transferKlasa) {

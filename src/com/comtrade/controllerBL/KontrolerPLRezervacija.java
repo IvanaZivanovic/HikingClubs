@@ -7,6 +7,7 @@ import com.comtrade.servis.RezervacijaServisSacuvaj;
 import com.comtrade.servis.RezervacijaServisVratiListu;
 
 public class KontrolerPLRezervacija implements KontrolerCommandBase {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void execute(TransferKlasa transferKlasa) {

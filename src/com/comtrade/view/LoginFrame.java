@@ -1,6 +1,6 @@
 package com.comtrade.view;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -23,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class LoginFrame extends JFrame {
+	// to do: translate variables from serbian to english 
 
 	private JPanel contentPane;
 	private JTextField tfUsername;

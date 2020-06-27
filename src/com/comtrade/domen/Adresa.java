@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Adresa implements OpstiDomen{
+	// to do: translate variables from serbian to english 
 	
 	private int id_adresa;
 	private String mesto;

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Konekcija {
+	// to do: translate variables from serbian to english 
 	private Connection connection;
 	private static Konekcija konekcija;
 	

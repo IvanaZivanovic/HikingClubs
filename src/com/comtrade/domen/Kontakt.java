@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Kontakt implements OpstiDomen{
+	// to do: translate variables from serbian to english 
 	private int idKontakt;
 	private String brojTelefona;
 	private String email;

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Planinar implements OpstiDomen{
+	// to do: translate variables from serbian to english 
 	private int idPlaninar;
 	private String ime;
 	private String prezime;

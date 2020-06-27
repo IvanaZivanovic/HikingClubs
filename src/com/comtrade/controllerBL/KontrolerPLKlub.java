@@ -10,6 +10,7 @@ import com.comtrade.servis.KlubServisVratiListuKlubova;
 import com.comtrade.servis.OpstaSistemskaOperacija;
 
 public class KontrolerPLKlub implements KontrolerCommandBase {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void execute(TransferKlasa transferKlasa) {

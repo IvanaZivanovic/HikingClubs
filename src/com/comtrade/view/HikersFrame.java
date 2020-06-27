@@ -1,7 +1,6 @@
 package com.comtrade.view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.util.Date;
 import java.util.List;
 
@@ -31,9 +30,10 @@ import java.awt.event.MouseListener;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.awt.event.ActionEvent;
-import com.toedter.calendar.JYearChooser;
+
 
 public class HikersFrame extends JFrame {
+	// to do: translate variables from serbian to english 
 
 	private JPanel contentPane;
 	private JTextField tfFirstName;

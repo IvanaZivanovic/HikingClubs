@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Klub implements OpstiDomen {
+	// to do: translate variables from serbian to english 
 	private int idKlub;
 	private String naziv;
 	private String pib;

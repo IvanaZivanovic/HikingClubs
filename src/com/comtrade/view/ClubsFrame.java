@@ -1,7 +1,5 @@
 package com.comtrade.view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,6 +26,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class ClubsFrame extends JFrame {
+	// to do: translate variables from serbian to english 
 
 	private JPanel contentPane;
 	private JTextField tfName;

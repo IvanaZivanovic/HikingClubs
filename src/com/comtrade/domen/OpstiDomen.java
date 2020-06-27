@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.List;
 
 public interface OpstiDomen {
+	// to do: translate variables from serbian to english 
 	String vratiNazivTabele();
 	String vratiNaziveKolona();
 	String vratiVrednosti();

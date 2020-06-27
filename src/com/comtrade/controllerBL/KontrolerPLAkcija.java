@@ -10,6 +10,7 @@ import com.comtrade.servis.OpstaSistemskaOperacija;
 import com.toedter.calendar.IDateEditor;
 
 public class KontrolerPLAkcija implements KontrolerCommandBase {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void execute(TransferKlasa transferKlasa) {

@@ -1,6 +1,7 @@
 package com.comtrade.domen;
 
 public class Rezervacija {
+	// to do: translate variables from serbian to english 
 	private int idRezervacija;
 	private Akcija akcija;
 	private Planinar planinar;

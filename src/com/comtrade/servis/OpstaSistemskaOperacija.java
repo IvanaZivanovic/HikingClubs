@@ -4,6 +4,7 @@ import com.comtrade.domen.TransferKlasa;
 import com.comtrade.konekcija.Konekcija;
 
 public abstract class OpstaSistemskaOperacija {
+	// to do: translate variables from serbian to english 
 	public void izvrsiSistemskuOperaciju(TransferKlasa transferKlasa) {
 		try {
 			pokreniTransakciju();

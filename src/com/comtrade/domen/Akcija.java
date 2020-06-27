@@ -3,6 +3,7 @@ package com.comtrade.domen;
 import java.time.LocalDate;
 
 public class Akcija {
+	// to do: translate variables from serbian to english 
 	private int idAkcija;
 	private String destinacija;
 	private LocalDate datumAkcije;

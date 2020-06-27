@@ -11,6 +11,7 @@ import com.comtrade.servis.VodicServisVratiSveVodice;
 
 
 public class KontrolerPLVodic implements KontrolerCommandBase {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void execute(TransferKlasa transferKlasa) {

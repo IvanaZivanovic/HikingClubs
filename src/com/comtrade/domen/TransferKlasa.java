@@ -1,6 +1,7 @@
 package com.comtrade.domen;
 
 public class TransferKlasa {
+	// to do: translate variables from serbian to english 
 	private Object request;
 	private Object response;
 	private String message;

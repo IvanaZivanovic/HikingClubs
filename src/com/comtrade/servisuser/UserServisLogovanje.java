@@ -7,6 +7,7 @@ import com.comtrade.domen.User;
 import com.comtrade.servis.OpstaSistemskaOperacija;
 
 public class UserServisLogovanje extends OpstaSistemskaOperacija{
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void izvrsiKonkretnuSistemskuOperaciju(TransferKlasa transferKlasa) {

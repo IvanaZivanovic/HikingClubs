@@ -10,6 +10,7 @@ import com.comtrade.controllerBL.KontrolerPLVodic;
 import com.comtrade.domen.TransferKlasa;
 
 public class KontrolerFK {
+	// to do: translate variables from serbian to english 
 	
 	private static KontrolerFK kontrolerFK;
 	private KontrolerFK() {

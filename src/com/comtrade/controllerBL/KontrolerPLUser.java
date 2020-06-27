@@ -8,6 +8,7 @@ import com.comtrade.servisuser.UserServisRegister;
 
 
 public class KontrolerPLUser implements KontrolerCommandBase{
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void execute(TransferKlasa transferKlasa) {

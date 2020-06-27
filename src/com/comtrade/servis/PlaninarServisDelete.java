@@ -5,6 +5,7 @@ import com.comtrade.domen.Planinar;
 import com.comtrade.domen.TransferKlasa;
 
 public class PlaninarServisDelete extends OpstaSistemskaOperacija {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void izvrsiKonkretnuSistemskuOperaciju(TransferKlasa transferKlasa) {

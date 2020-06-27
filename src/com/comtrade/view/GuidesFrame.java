@@ -1,7 +1,6 @@
 package com.comtrade.view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -31,6 +30,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JRadioButton;
 
 public class GuidesFrame extends JFrame {
+	// to do: translate variables from serbian to english 
 
 	private JPanel contentPane;
 	private JTextField tfFirstName;

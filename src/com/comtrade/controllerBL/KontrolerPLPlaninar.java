@@ -9,6 +9,7 @@ import com.comtrade.servis.PlaninarServisSacuvaj;
 import com.comtrade.servis.PlaninarServisVratiSve;
 
 public class KontrolerPLPlaninar implements KontrolerCommandBase {
+	// to do: translate variables from serbian to english 
 
 	@Override
 	public void execute(TransferKlasa transferKlasa) {

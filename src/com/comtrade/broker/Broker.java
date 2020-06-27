@@ -20,6 +20,7 @@ import com.comtrade.domen.Vodic;
 import com.comtrade.konekcija.Konekcija;
 
 public class Broker {
+	// to do: translate variables from serbian to english 
 	
 	public Integer login(User user) {
 		String sql = "select * from users INNER join user_role on users.id_user = user_role.id_user where users.username = ? and users.password = ?";

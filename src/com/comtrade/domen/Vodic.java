@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Vodic implements OpstiDomen{
+	// to do: translate variables from serbian to english 
 	private int idVodic;
 	private String ime;
 	private String prezime;

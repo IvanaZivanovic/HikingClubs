@@ -1,6 +1,7 @@
 package com.comtrade.domen;
 
 public class User {
+	// to do: translate variables from serbian to english 
 	private int idUser;
 	private String username;
 	private String password;
