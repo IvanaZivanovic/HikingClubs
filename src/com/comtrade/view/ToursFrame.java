@@ -1,7 +1,6 @@
 package com.comtrade.view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
@@ -36,6 +35,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ToursFrame extends JFrame {
+	// to do: translate variables from serbian to english 
 
 	private JPanel contentPane;
 	private JTextField tfDestination;
