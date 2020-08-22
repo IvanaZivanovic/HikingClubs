@@ -78,7 +78,7 @@ public class Broker {
 
 	public List<Klub> selectAll(Klub klub) {
 		List<Klub>list = new ArrayList<Klub>();
-		String sql = "select * from klub INNER join adresa on klub.id_klub = adresa.id_klub INNER join kontakt on kontakt.id_klub = klub.id_klub";
+		String sql = "select * from club INNER join address on club.id_club = address.id_club INNER join contact on contact.id_club = club.id_club";
 		
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
@@ -88,18 +88,18 @@ public class Broker {
 				Kontakt kontakt = new Kontakt();
 				Adresa adresa = new Adresa();
 				
-				klub1.setIdKlub(resultSet.getInt("id_klub"));
-				klub1.setNaziv(resultSet.getString("naziv"));
-				klub1.setPib(resultSet.getString("pib_broj"));
+				klub1.setIdKlub(resultSet.getInt("id_club"));
+				klub1.setNaziv(resultSet.getString("name"));
+				klub1.setPib(resultSet.getString("tin"));
 				
-				adresa.setMesto(resultSet.getString("mesto"));
-				adresa.setPostanski_broj(resultSet.getInt("postanski_broj"));
-				adresa.setUlica(resultSet.getString("ulica"));
-				adresa.setBroj(resultSet.getString("broj"));
+				adresa.setMesto(resultSet.getString("city"));
+				adresa.setPostanski_broj(resultSet.getInt("zip_code"));
+				adresa.setUlica(resultSet.getString("street"));
+				adresa.setBroj(resultSet.getString("number"));
 												
-				kontakt.setBrojTelefona(resultSet.getString("broj_telefona"));
+				kontakt.setBrojTelefona(resultSet.getString("phone_number"));
 				kontakt.setEmail(resultSet.getString("email"));
-				kontakt.setWebSajt(resultSet.getString("web_sajt"));
+				kontakt.setWebSajt(resultSet.getString("web_address"));
 				klub1.setKontakt(kontakt);
 				klub1.setAdresa(adresa);
 								
@@ -119,18 +119,18 @@ public class Broker {
 	}
 
 	public void deleteKlub(Klub klub) {
-		String sql = "delete from adresa where id_klub = ?";
+		String sql = "delete from address where id_club = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setInt(1, klub.getIdKlub());
 			preparedStatement.execute();
 			
-			String sqlKontakt = "delete from kontakt where id_klub = ?";
+			String sqlKontakt = "delete from contact where id_club = ?";
 			preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sqlKontakt);
 			preparedStatement.setInt(1, klub.getIdKlub());
 			preparedStatement.execute();
 			
-			String sqlKlub = "delete from klub where id_klub = ?";
+			String sqlKlub = "delete from club where id_club = ?";
 			preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sqlKlub);
 			preparedStatement.setInt(1, klub.getIdKlub());
 			preparedStatement.execute();
@@ -143,7 +143,7 @@ public class Broker {
 	}
 
 	public Klub selectJedan(Klub klub) {
-		String sql = "select max(id_klub) as id from klub";
+		String sql = "select max(id_club) as id from club";
 		Klub klub1 = new Klub();
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
@@ -164,7 +164,7 @@ public class Broker {
 	}
 
 	public void izmeni(Klub klub) {
-		String sql = " update klub INNER join adresa on adresa.id_klub = klub.id_klub INNER JOIN kontakt on kontakt.id_klub = klub.id_klub set klub.naziv = ?, klub.pib_broj = ?, adresa.mesto = ?, adresa.postanski_broj = ?, adresa.ulica = ?, adresa.broj = ?, kontakt.broj_telefona = ?, kontakt.email = ?, kontakt.web_sajt = ? where klub.id_klub = ?";
+		String sql = " update club INNER join address on address.id_club = club.id_club INNER JOIN contact on contact.id_club = club.id_club set club.name = ?, club.tin = ?, address.city = ?, address.zip_code = ?, address.street = ?, address.number = ?, contact.phone_number = ?, contact.email = ?, contact.web_address = ? where club.id_club = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, klub.getNaziv());
@@ -188,7 +188,7 @@ public class Broker {
 
 	public void save(OpstiDomen opstiDomen) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO `vodic`(`ime`, `prezime`, `godiste`, `broj_licence`, `broj_telefona`, `email`, `id_klub`) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO `guide`(`first_name`, `last_name`, `year_of_birth`, `licence_number`, `phone_number`, `email`, `id_club`) VALUES (?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			opstiDomen.sacuvaj(preparedStatement);
@@ -202,7 +202,7 @@ public class Broker {
 	}
 
 	public List<Vodic> selectAllForTable(Vodic vodic) {
-		String sql = "select * from vodic INNER JOIN klub on vodic.id_klub = klub.id_klub";
+		String sql = "select * from guide INNER JOIN club on guide.id_club = club.id_club";
 		List<Vodic>vodici = new ArrayList<Vodic>();
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
@@ -210,15 +210,15 @@ public class Broker {
 			while(resultSet.next()) {
 				Vodic vodic1 = new Vodic();
 				Klub klub = new Klub();
-				vodic1.setIdVodic(resultSet.getInt("id_vodic"));
-				vodic1.setIme(resultSet.getString("ime"));
-				vodic1.setPrezime(resultSet.getString("prezime"));
-				vodic1.setGodiste(resultSet.getInt("godiste"));
-				vodic1.setBrojLicence(resultSet.getString("broj_licence"));
-				vodic1.setBrojTelefona(resultSet.getString("broj_telefona"));
+				vodic1.setIdVodic(resultSet.getInt("id_guide"));
+				vodic1.setIme(resultSet.getString("first_name"));
+				vodic1.setPrezime(resultSet.getString("last_name"));
+				vodic1.setGodiste(resultSet.getInt("year_of_birth"));
+				vodic1.setBrojLicence(resultSet.getString("licence_number"));
+				vodic1.setBrojTelefona(resultSet.getString("phone_number"));
 				vodic1.setEmail(resultSet.getString("email"));
-				klub.setNaziv(resultSet.getString("naziv"));
-				klub.setIdKlub(resultSet.getInt("id_klub"));
+				klub.setNaziv(resultSet.getString("name"));
+				klub.setIdKlub(resultSet.getInt("id_club"));
 				vodic1.setKlub(klub);
 				
 				vodici.add(vodic1);
@@ -234,7 +234,7 @@ public class Broker {
 	}
 
 	public void izmeniVodica(OpstiDomen opstiDomen) {
-		String sql = "UPDATE `vodic` SET `ime`=?,`prezime`=?,`godiste`=?,`broj_licence`=?,`broj_telefona`=?,`email`=?,`id_klub`=? WHERE id_vodic = ?";
+		String sql = "UPDATE `guide` SET `first_name`=?,`last_name`=?,`year_of_birth`=?,`licence_number`=?,`phone_number`=?,`email`=?,`id_club`=? WHERE id_guide = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			opstiDomen.setujVrednostiZaUpdate(preparedStatement);
@@ -250,7 +250,7 @@ public class Broker {
 
 	public void obrisiVodica(Vodic vodic) {
 		// TODO Auto-generated method stub
-		String sql = "Delete from vodic where id_vodic = ?";
+		String sql = "Delete from guide where id_guide = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setInt(1, vodic.getIdVodic());
@@ -265,7 +265,7 @@ public class Broker {
 
 	public void savePlaninar(Planinar planinar) {
 		// TODO Auto-generated method stub
-		String sql = "insert into `planinar` (`ime`, `prezime`, `godiste`, `broj_clanske_karte`, `clanarina`, `broj_telefona`, `email`, `id_klub`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into `hiker` (`first_name`, `last_name`, `year_of_birth`, `membership_card_number`, `membership_date_valid`, `phone_number`, `email`, `id_club`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, planinar.getIme());
@@ -286,21 +286,21 @@ public class Broker {
 
 	public List<Planinar> selectSvePlaninare(Planinar planinar) {
 		List<Planinar> listPlaninara = new ArrayList<Planinar>();
-		String sql = "select * from planinar INNER JOIN klub on planinar.id_klub = klub.id_klub";
+		String sql = "select * from hiker INNER JOIN club on hiker.id_club = club.id_club";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				String ime = resultSet.getString("ime");
-				String prezime = resultSet.getString("prezime");
-				int godiste = resultSet.getInt("godiste");
-				String brojClKarte = resultSet.getString("broj_clanske_karte");
-				LocalDate istekClanarine = resultSet.getDate("clanarina").toLocalDate();
-				String brojTelefona = resultSet.getString("broj_telefona");
+				String ime = resultSet.getString("first_name");
+				String prezime = resultSet.getString("last_name");
+				int godiste = resultSet.getInt("year_of_birth");
+				String brojClKarte = resultSet.getString("membership_card_number");
+				LocalDate istekClanarine = resultSet.getDate("membership_date_valid").toLocalDate();
+				String brojTelefona = resultSet.getString("phone_number");
 				String email = resultSet.getString("email");
-				int idKlub = resultSet.getInt("id_klub");
-				int idPlaninar = resultSet.getInt("id_planinar");
-				String nazivKluba = resultSet.getString("naziv");
+				int idKlub = resultSet.getInt("id_club");
+				int idPlaninar = resultSet.getInt("id_hiker");
+				String nazivKluba = resultSet.getString("name");
 				Klub klub = new Klub();
 				klub.setIdKlub(idKlub);
 				klub.setNaziv(nazivKluba);
@@ -320,7 +320,7 @@ public class Broker {
 
 	public void deletePlaninar(Planinar planinar) {
 		// TODO Auto-generated method stub
-		String sql = "delete from `planinar` where id_planinar = ?";
+		String sql = "delete from `hiker` where id_hiker = ?";
 		PreparedStatement preparedStatement;
 		try {
 			preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
@@ -336,7 +336,8 @@ public class Broker {
 
 	public void editPlaninar(Planinar planinar) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE `planinar` SET `ime`=?,`prezime`=?,`godiste`=?,`broj_clanske_karte`=?,`clanarina`=?,`broj_telefona`=?,`email`=?,`id_klub`=? WHERE id_planinar = ?";
+		String sql = "UPDATE `hiker` SET `first_name`=?,`last_name`=?,`year_of_birth`=?,`membership_card_number`=?,"
+				+ "`membership_date_valid`=?,`phone_number`=?,`email`=?,`id_club`=? WHERE id_hiker = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, planinar.getIme());
@@ -360,16 +361,16 @@ public class Broker {
 	public List<Vodic> vratiVodiceKluba(Vodic vodic) {
 		// TODO Auto-generated method stub
 		List<Vodic> listaVodicaZaKlub = new ArrayList<Vodic>();
-		String sql ="select id_vodic, ime, prezime, broj_licence from vodic where id_klub = ?";
+		String sql ="select id_guide, first_name, last_name, licence_number from guide where id_club = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setInt(1, vodic.getKlub().getIdKlub());
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				String ime = resultSet.getString("ime");
-				String prezime = resultSet.getString("prezime");
-				int idVodic = resultSet.getInt("id_vodic");
-				String brojLicence = resultSet.getString("broj_licence");
+				String ime = resultSet.getString("first_name");
+				String prezime = resultSet.getString("last_name");
+				int idVodic = resultSet.getInt("id_guide");
+				String brojLicence = resultSet.getString("licence_number");
 				Vodic v1 = new Vodic();
 				v1.setBrojLicence(brojLicence);
 				v1.setIme(ime);
@@ -388,7 +389,7 @@ public class Broker {
 
 	public void SacuvajAkciju(Akcija akcija) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO `akcija`(`destinacija`, `datum`, `tip_akcije`, `cena`, `link`, `id_klub`, `id_vodic`) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO `tour`(`destination`, `date`, `tour_type`, `price`, `link`, `id_club`, `id_guide`) VALUES (?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, akcija.getDestinacija());
@@ -409,7 +410,7 @@ public class Broker {
 
 	public void saveUser(User user) {
 		// TODO Auto-generated method stub
-		String sql =  "INSERT INTO `users`(`username`, `password`, `email`, `ime`, `prezime`, `status`) VALUES (?,?,?,?,?,?)";
+		String sql =  "INSERT INTO `users`(`username`, `password`, `email`, `first_name`, `last_name`, `status`) VALUES (?,?,?,?,?,?)";
 		int idUser=0;
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
@@ -447,25 +448,25 @@ public class Broker {
 	public List<Akcija> vratiListuAkcija(Akcija akcija) {
 		// TODO Auto-generated method stub
 		List<Akcija> listaAkcijas = new ArrayList<Akcija>();
-		String sql = "select * from akcija INNER JOIN klub on akcija.id_klub = klub.id_klub inner JOIN vodic on akcija.id_vodic = vodic.id_vodic";
+		String sql = "select * from tour INNER JOIN club on tour.id_club = club.id_club inner JOIN guide on tour.id_guide = guide.id_guide";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
-				int idAkcija = resultSet.getInt("id_akcija");
-				String destinacija = resultSet.getString("destinacija");
-				LocalDate datumAkcije = resultSet.getDate("datum").toLocalDate();
-				double cena = resultSet.getDouble("cena");
-				String tipAkcije = resultSet.getString("tip_akcije");
+				int idAkcija = resultSet.getInt("id_tour");
+				String destinacija = resultSet.getString("destination");
+				LocalDate datumAkcije = resultSet.getDate("date").toLocalDate();
+				double cena = resultSet.getDouble("price");
+				String tipAkcije = resultSet.getString("tour_type");
 				String link = resultSet.getString("link");
 				
-				String nazivKluba = resultSet.getString("naziv");
-				int idKluba = resultSet.getInt("id_klub");
+				String nazivKluba = resultSet.getString("name");
+				int idKluba = resultSet.getInt("id_club");
 				
-				String imeVodica = resultSet.getString("ime");
-				String prezimeVodica = resultSet.getString("prezime");
-				String brojLicence = resultSet.getString("broj_licence");
-				int idVodica = resultSet.getInt("id_vodic");
+				String imeVodica = resultSet.getString("first_name");
+				String prezimeVodica = resultSet.getString("last_name");
+				String brojLicence = resultSet.getString("licence_number");
+				int idVodica = resultSet.getInt("id_guide");
 				
 				Klub klub = new Klub();
 				klub.setNaziv(nazivKluba);
@@ -491,7 +492,7 @@ public class Broker {
 
 	public void deleteAkciju(Akcija akcija) {
 		// TODO Auto-generated method stub
-		String sql = "delete from akcija where id_akcija = ?";
+		String sql = "delete from tour where id_tour = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setInt(1, akcija.getIdAkcija());
@@ -506,7 +507,7 @@ public class Broker {
 
 	public void izmeniAkciju(Akcija akcija) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE `akcija` SET `destinacija`=?,`datum`=?,`tip_akcije`=?,`cena`=?,`link`=?,`id_klub`=?,`id_vodic`=? WHERE id_akcija = ?";
+		String sql = "UPDATE `tour` SET `destination`=?,`date`=?,`tour_type`=?,`price`=?,`link`=?,`id_club`=?,`id_guide`=? WHERE id_tour = ?";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, akcija.getDestinacija());
@@ -528,7 +529,7 @@ public class Broker {
 
 	public void sacuvajRezervaciju(Rezervacija rezervacija) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO `rezervacija`(`id_planinar`, `id_akcija`) VALUES (?,?)";
+		String sql = "INSERT INTO `reservation`(`id_hiker`, `id_tour`) VALUES (?,?)";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setInt(1, rezervacija.getPlaninar().getIdPlaninar());
@@ -544,18 +545,18 @@ public class Broker {
 	public List<Rezervacija> vratiListuRezervacija(Rezervacija rezervacija) {
 		// TODO Auto-generated method stub
 		List<Rezervacija> listaRezervacija = new ArrayList<Rezervacija>();
-		String sql = "select * from rezervacija";
+		String sql = "select * from reservation";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				Planinar p = new Planinar();
-				int idPlaninar = resultSet.getInt("id_planinar");
-				int idAkcija = resultSet.getInt("id_akcija");
+				int idPlaninar = resultSet.getInt("id_hiker");
+				int idAkcija = resultSet.getInt("id_tour");
 				Akcija a = new Akcija();
 				p.setIdPlaninar(idPlaninar);
 				a.setIdAkcija(idAkcija);
-				int idRezervacija = resultSet.getInt("id_rezervacija");
+				int idRezervacija = resultSet.getInt("id_reservation");
 				Rezervacija r = new Rezervacija(idRezervacija, a, p);
 				listaRezervacija.add(r);
 			}
@@ -569,7 +570,7 @@ public class Broker {
 
 	public void upisiAdresu(Adresa adresa) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO `adresa`(`mesto`, `postanski_broj`, `ulica`, `broj`, `id_klub`) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO `address`(`city`, `zip_code`, `street`, `number`, `id_club`) VALUES (?,?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, adresa.getMesto());
@@ -588,7 +589,7 @@ public class Broker {
 
 	public void upisiKontakt(Kontakt kontakt) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO `kontakt`(`broj_telefona`, `email`, `web_sajt`, `id_klub`) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO `contact`(`phone_number`, `email`, `web_address`, `id_club`) VALUES (?,?,?,?)";
 		try {
 			PreparedStatement preparedStatement = Konekcija.getInstanca().getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, kontakt.getBrojTelefona());

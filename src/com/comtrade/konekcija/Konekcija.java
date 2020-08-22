@@ -24,7 +24,7 @@ public class Konekcija {
 	
 	public void pokreniTransakciju() {
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/planinarski_klub", "root","");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hiking_club", "root","");
 			connection.setAutoCommit(false);
 		} catch (SQLException e) {
 			e.printStackTrace();

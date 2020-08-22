@@ -68,12 +68,12 @@ public class Klub implements OpstiDomen {
 	@Override
 	public String vratiNazivTabele() {
 		// TODO Auto-generated method stub
-		return " `klub` ";
+		return " `club` ";
 	}
 	@Override
 	public String vratiNaziveKolona() {
 		// TODO Auto-generated method stub
-		return " (`naziv`, `pib_broj`) ";
+		return " (`name`, `tin`) ";
 	}
 	@Override
 	public String vratiVrednosti() {
@@ -101,8 +101,8 @@ public class Klub implements OpstiDomen {
 		try {
 			while(resultSet.next()) {
 				Klub klub = new Klub();
-				klub.setIdKlub(resultSet.getInt("id_klub"));
-				klub.setNaziv(resultSet.getString(("naziv")));
+				klub.setIdKlub(resultSet.getInt("id_club"));
+				klub.setNaziv(resultSet.getString(("name")));
 				list.add(klub);
 				
 			}

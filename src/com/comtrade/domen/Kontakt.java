@@ -67,12 +67,12 @@ public class Kontakt implements OpstiDomen{
 	@Override
 	public String vratiNazivTabele() {
 		// TODO Auto-generated method stub
-		return " `kontakt` ";
+		return " `contact` ";
 	}
 	@Override
 	public String vratiNaziveKolona() {
 		// TODO Auto-generated method stub
-		return " (`broj_telefona`, `email`, `web_sajt`, `id_klub`) ";
+		return " (`phone_number`, `email`, `web_address`, `id_club`) ";
 	}
 	@Override
 	public String vratiVrednosti() {
@@ -100,9 +100,9 @@ public class Kontakt implements OpstiDomen{
 		try {
 			while(resultSet.next()) {
 				Kontakt kontakt = new Kontakt();
-				kontakt.setBrojTelefona(resultSet.getString("broj_telefona"));
+				kontakt.setBrojTelefona(resultSet.getString("phone_number"));
 				kontakt.setEmail(resultSet.getString("email"));
-				kontakt.setWebSajt(resultSet.getString("web_sajt"));
+				kontakt.setWebSajt(resultSet.getString("web_address"));
 				list.add(kontakt);
 			}
 		} catch (SQLException e) {

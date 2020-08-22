@@ -88,7 +88,7 @@ public class Adresa implements OpstiDomen{
 	@Override
 	public String vratiNaziveKolona() {
 		// TODO Auto-generated method stub
-		return " (`mesto`, `postanski_broj`, `ulica`, `broj`, `id_klub`)";
+		return " (`city`, `zip_code`, `street`, `number`, `id_club`)";
 	}
 	@Override
 	public String vratiVrednosti() {
@@ -116,7 +116,7 @@ public class Adresa implements OpstiDomen{
 		try {
 			while(resultSet.next()) {
 				Adresa adresa = new Adresa();
-				adresa.setMesto(resultSet.getString("mesto"));
+				adresa.setMesto(resultSet.getString("city"));
 				list.add(adresa);
 			}
 		} catch (SQLException e) {
